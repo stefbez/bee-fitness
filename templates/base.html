@@ -35,7 +35,43 @@
     <title>Bee Fitness {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
-    <header class="container-fluid fixed-top"></header>
+    
+        <header>
+            <div class="container-fluid header-banner px-0">
+                <div class="d-flex justify-content-between bd-highlight my-3">
+                    <a href="{% url 'home' %}" class="bf-logo">
+                        <img src="https://www.rotageek.com/hubfs/P%20-%20Sep20%20Website%20Assets/images/logo--rotageek.svg"
+                            alt="test image logo">
+                    </a>
+                    <div class="acc-icon">
+                        <i>text</i>
+                    </div>
+                </div>
+                <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav text-center mx-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{% url 'about' %}">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'gym' %}">Gym</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'racquets' %}">Racquets</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'swim' %}">Swim &amp; Spa</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                </div>
+        </header>
+  
 
     {% if messages %}
         <div class="message-container"></div>
