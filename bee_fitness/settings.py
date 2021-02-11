@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'home',
+    'members',
+    'payment',
+    'profiles',
 ]
 
 MIDDLEWARE = [
@@ -94,7 +97,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/membership'
+LOGIN_REDIRECT_URL = '/members/'
 
 WSGI_APPLICATION = 'bee_fitness.wsgi.application'
 

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
 
-def index(request):
+def members(request):
     """ A view to return the index page """
-    return render(request, 'home/index.html')
+    return render(request, 'members/members.html')

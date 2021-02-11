@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
 
-def index(request):
+def payment(request):
     """ A view to return the index page """
-    return render(request, 'home/index.html')
+    return render(request, 'payment/payment.html')
