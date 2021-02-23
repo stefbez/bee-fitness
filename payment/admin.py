@@ -1,3 +1,5 @@
 from django.contrib import admin
+from payment.models import StripeCustomer
 
-# Register your models here.
+
+admin.site.register(StripeCustomer)
