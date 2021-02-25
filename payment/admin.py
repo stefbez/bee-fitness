@@ -1,5 +1,15 @@
 from django.contrib import admin
-from payment.models import StripeCustomer
+from payment.models import PaidMember
 
 
-admin.site.register(StripeCustomer)
+class PaidMemberAdmin(admin.ModelAdmin):
+    """ Premium User Admin """
+    list_display = (
+        'user',
+        'start_date',
+        'end_date',
+        'subscription',
+    )
+
+
+admin.site.register(PaidMember, PaidMemberAdmin)
