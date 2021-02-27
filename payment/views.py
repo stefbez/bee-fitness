@@ -17,11 +17,6 @@ import stripe
 @login_required
 def payment(request):
     """ A view to return the index page """
-    # if request.method == 'GET':
-    # try:
-    #     request.user.paidmember
-    #     return redirect(reverse('success'))
-    # except Exception as e:
     return render(request, 'payment/payment.html')
 
 
@@ -44,14 +39,14 @@ def get_form_data(request):
 
 @csrf_exempt
 def stripe_config(request):
-    if request.method == 'POST':
+    if request.method == 'GET':
         print('user clicked SUBSCRIBE stripe config')
         stripe_config = {'publicKey': settings.STRIPE_PUBLIC_KEY}
         return JsonResponse(stripe_config, safe=False)
 
 @csrf_exempt
 def create_checkout_session(request):
-    if request.method == 'POST':
+    if request.method == 'GET':
         print('user clicked SUBSCRIBE create checkout session')
         domain_url = 'https://8000-lime-wallaby-so47o6kn.ws-eu03.gitpod.io/'
         stripe.api_key = settings.STRIPE_SECRET_KEY
