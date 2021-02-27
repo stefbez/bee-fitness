@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 
@@ -15,7 +15,7 @@ def user_profile(request, user):
     }
 
     try:
-        get_user = get_object_or_404(User, username=user)
+        get_user = get_object_or_404(user, username=user)
 
         user_profile = get_object_or_404(UserProfile, user=get_user)
 
