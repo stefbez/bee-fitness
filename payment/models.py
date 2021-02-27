@@ -1,5 +1,22 @@
 from django.db import models
+from django.forms import ModelForm
 from django.contrib.auth.models import User
+
+from profiles.models import UserProfile
+
+
+class UserInfo(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
+                                     null=True, blank=True)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    phone_number = models.CharField(max_length=100)
+    first_line_address = models.CharField(max_length=100)
+    postcode = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.user
 
 
 class PaidMember(models.Model):
@@ -11,4 +28,4 @@ class PaidMember(models.Model):
     subscription = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.user.username
+        return self.user

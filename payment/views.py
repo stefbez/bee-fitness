@@ -1,13 +1,15 @@
 from django.shortcuts import render, redirect, reverse
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
-from django.http.response import JsonResponse, HttpResponse
+from django.http.response import JsonResponse, HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
 from .models import PaidMember
+from .forms import UserInfoForm
+
 
 import stripe
 
@@ -15,21 +17,42 @@ import stripe
 @login_required
 def payment(request):
     """ A view to return the index page """
+    # if request.method == 'GET':
     # try:
     #     request.user.paidmember
     #     return redirect(reverse('success'))
     # except Exception as e:
     return render(request, 'payment/payment.html')
 
+
+@login_required
+def get_form_data(request):
+    if request.method == 'POST':
+        form_data = {
+            'first_name': request.POST['first_name'],
+            'last_name': request.POST['last_name'],
+            'phone_number': request.POST['phone_number'],
+            'first_line_address': request.POST['first_line_address'],
+            'postcode': request.POST['postcode'],
+        }
+
+        user_info = UserInfoForm(form_data)
+        if user_info.is_valid():
+            # process form data
+            return HttpResponseRedirect('payment')
+
+
 @csrf_exempt
 def stripe_config(request):
-    if request.method == 'GET':
+    if request.method == 'POST':
+        print('user clicked SUBSCRIBE stripe config')
         stripe_config = {'publicKey': settings.STRIPE_PUBLIC_KEY}
         return JsonResponse(stripe_config, safe=False)
 
 @csrf_exempt
 def create_checkout_session(request):
-    if request.method == 'GET':
+    if request.method == 'POST':
+        print('user clicked SUBSCRIBE create checkout session')
         domain_url = 'https://8000-lime-wallaby-so47o6kn.ws-eu03.gitpod.io/'
         stripe.api_key = settings.STRIPE_SECRET_KEY
         try:
