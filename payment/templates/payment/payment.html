@@ -22,12 +22,12 @@
 <form action="{% url 'payment' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset class="rounded px-3 mb-5">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
+                        <legend class="fieldset-label small text-black px-2 w-auto">Name</legend>
                         {{ user_info.first_name | as_crispy_field }}
                         {{ user_info.last_name | as_crispy_field }}
                     </fieldset>
                     <fieldset class="rounded px-3 mb-5">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Delivery</legend>
+                        <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
                         {{ user_info.phone_number | as_crispy_field }}
                         {{ user_info.first_line_address | as_crispy_field }}
                         {{ user_info.postcode | as_crispy_field }}

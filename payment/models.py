@@ -28,4 +28,4 @@ class PaidMember(models.Model):
     subscription = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.user
+        return self.user.username

@@ -16,8 +16,13 @@ import stripe
 
 @login_required
 def payment(request):
-    """ A view to return the index page """
-    return render(request, 'payment/payment.html')
+    """ A view to return the payment page """
+    template = 'payment/payment.html'
+    user_info = UserInfoForm
+    context = {
+        "user_info": user_info
+        }
+    return render(request, template, context)
 
 
 @login_required
@@ -33,8 +38,8 @@ def get_form_data(request):
 
         user_info = UserInfoForm(form_data)
         if user_info.is_valid():
-            # process form data
-            return HttpResponseRedirect('payment')
+            form_data.save()
+            return redirect(reverse('payment'))
 
 
 @csrf_exempt
