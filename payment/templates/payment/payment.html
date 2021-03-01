@@ -16,8 +16,17 @@
     <div class="row">
         <div class="col">
             <h1>Payment</h1>
-                <h2>{{ user }}</h2>
+                <h2></h2>
 
+{% if user.paidmember %}
+
+<h1>Subscription Already Active</h1>
+
+<p>were you looking for the <a href="{% url 'members' %}">Members Area</a>?</p>
+
+{% endif %}
+
+{% if not user.paidmember %}
 
 <form action="{% url 'payment' %}" method="POST" id="payment-form">
                     {% csrf_token %}
@@ -49,6 +58,9 @@
         </div>
     </div>
 </div>
+
+{% endif %}
+
 {% endblock %}
 
 {% block postloadjs %}

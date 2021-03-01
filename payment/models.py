@@ -7,8 +7,6 @@ from profiles.models import UserProfile
 
 class UserInfo(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
-                                     null=True, blank=True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=100)
@@ -16,7 +14,7 @@ class UserInfo(models.Model):
     postcode = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.user
+        return self.user.username
 
 
 class PaidMember(models.Model):

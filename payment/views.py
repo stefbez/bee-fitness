@@ -22,6 +22,7 @@ def payment(request):
     context = {
         "user_info": user_info
         }
+
     return render(request, template, context)
 
 
@@ -38,8 +39,8 @@ def get_form_data(request):
 
         user_info = UserInfoForm(form_data)
         if user_info.is_valid():
-            form_data.save()
-            return redirect(reverse('payment'))
+            user_info.objects.create(
+                user=request.user, first_name=first_name, last_name=last_name, phone_number=phone_number, first_line_address=first_line_address, postcode=postcode)
 
 
 @csrf_exempt

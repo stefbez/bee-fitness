@@ -1,5 +1,5 @@
 from django.contrib import admin
-from payment.models import PaidMember
+from payment.models import PaidMember, UserInfo
 
 
 class PaidMemberAdmin(admin.ModelAdmin):
@@ -13,3 +13,18 @@ class PaidMemberAdmin(admin.ModelAdmin):
 
 
 admin.site.register(PaidMember, PaidMemberAdmin)
+
+
+class UserInfoAdmin(admin.ModelAdmin):
+    """ User Info Admin """
+    list_display = (
+        'user',
+        'first_name',
+        'last_name',
+        'phone_number',
+        'first_line_address',
+        'postcode',
+    )
+
+
+admin.site.register(UserInfo, UserInfoAdmin)
