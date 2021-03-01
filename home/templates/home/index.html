@@ -13,9 +13,19 @@
 <div class="container h-100">
     <div class="row h-100">
         <div class="col my-auto">
-            <h1 class="display-4">TEXT TEXT TEXT {{ request.user }}</h1>
+            {% if user.paidmember %}
+            <h1 class="display-4">Welcome Back {{ request.user }}</h1>
+            {% else %}
+            <h1 class="display-4">TEXT TEXT TEXT</h1>
+            {% endif %}
             <div class="my-5">
-                <a href="{% url 'payment' %}" class="btn btn-lg">Join the Gym</a>
+                {% if user.paidmember %}
+                <a href="{% url 'members' %}" class="btn btn-lg">
+                    Members Area</a>
+                {% else %}
+                <a href="{% url 'payment' %}" class="btn btn-lg">
+                    Join the Gym</a>
+                {% endif %}
             </div>
         </div>
     </div>
