@@ -29,6 +29,7 @@ def payment(request):
 @login_required
 def get_form_data(request):
     if request.method == 'POST':
+        print('IF POST WORKS')
         form_data = {
             'first_name': request.POST['first_name'],
             'last_name': request.POST['last_name'],
@@ -38,22 +39,24 @@ def get_form_data(request):
         }
 
         user_info = UserInfoForm(form_data)
+        print(request.user_info)
         if user_info.is_valid():
-            user_info.objects.create(
-                user=request.user, first_name=first_name, last_name=last_name, phone_number=phone_number, first_line_address=first_line_address, postcode=postcode)
+            user_info.save()
+            # user_info.objects.create(
+            #     user=request.user, first_name=first_name, last_name=last_name, phone_number=phone_number, first_line_address=first_line_address, postcode=postcode)
 
+        return redirect('payment')
+    return render(request, 'payment/payment.html')
 
 @csrf_exempt
 def stripe_config(request):
     if request.method == 'GET':
-        print('user clicked SUBSCRIBE stripe config')
         stripe_config = {'publicKey': settings.STRIPE_PUBLIC_KEY}
         return JsonResponse(stripe_config, safe=False)
 
 @csrf_exempt
 def create_checkout_session(request):
     if request.method == 'GET':
-        print('user clicked SUBSCRIBE create checkout session')
         domain_url = 'https://8000-lime-wallaby-so47o6kn.ws-eu03.gitpod.io/'
         stripe.api_key = settings.STRIPE_SECRET_KEY
         try:
