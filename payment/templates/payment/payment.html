@@ -24,6 +24,10 @@
 
 <p>were you looking for the <a href="{% url 'members' %}">Members Area</a>?</p>
 
+<p>user {{ user }}</p>
+<p>start {{ start_date }}</p>
+<p>end {{ user.paidmember.end_date }}</p>
+
 {% endif %}
 
 {% if not user.paidmember %}

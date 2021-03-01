@@ -15,10 +15,11 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h1>Members</h1>
+            <h1>Members {{ user.paidmember }}</h1>
             <div class="membership-card">
         {% load qr_code %}
-            {% qr_from_text "contact_detail" %}
+            {% qr_from_text user.paidmember %}
+            <p>End date: {{ user.paidmember.end_date }}</p>
         </div>
         </div>
     </div>
