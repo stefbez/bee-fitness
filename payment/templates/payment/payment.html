@@ -27,12 +27,15 @@
 <p>user {{ user }}</p>
 <p>start {{ start_date }}</p>
 <p>end {{ user.paidmember.end_date }}</p>
+<p>user user info {{ user.userinfo.first_name }}</p>
 
 {% endif %}
 
 {% if not user.paidmember %}
 
-<form action="{% url 'payment' %}" method="POST" id="payment-form">
+<h1>{{ request.user.id }}</h1>
+
+<form action="{% url 'get-form-data' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset class="rounded px-3 mb-5">
                         <legend class="fieldset-label small text-black px-2 w-auto">Name</legend>
