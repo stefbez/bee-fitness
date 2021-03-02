@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse
 from django.conf import settings
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.http.response import JsonResponse, HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
@@ -7,7 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-from .models import PaidMember
+from .models import PaidMember, UserInfo
 from .forms import UserInfoForm
 
 
@@ -17,18 +18,11 @@ import stripe
 @login_required
 def payment(request):
     """ A view to return the payment page """
-    template = 'payment/payment.html'
-    user_info = UserInfoForm
-    context = {
-        "user_info": user_info
-        }
-    print(request.user.id)
+    # get the user from the DB
+    user = UserInfo.objects.get(user=request.user)
+    form = UserInfoForm(instance=user)
+    print(form)
 
-    return render(request, template, context)
-
-
-@login_required
-def get_form_data(request):
     if request.method == 'POST':
         print('IF POST WORKS')
         form_data = {
@@ -39,7 +33,7 @@ def get_form_data(request):
             'postcode': request.POST['postcode'],
         }
 
-        user_info = UserInfoForm(request.POST)
+        user_info = UserInfoForm(request.POST, instance=user)
         temp = user_info.save(commit=False)
         temp.user = request.user
         # temp['user'] = request.user
@@ -47,7 +41,16 @@ def get_form_data(request):
         temp.save()
 
         return redirect(reverse('payment'))
-    return render(request, 'payment/payment.html')
+
+    template = 'payment/payment.html'
+    user_info = UserInfoForm
+    context = {
+        "user_info": user_info,
+        "user_info": form
+        }
+    print(request.user.id)
+
+    return render(request, template, context)
 
 @csrf_exempt
 def stripe_config(request):

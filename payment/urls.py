@@ -3,7 +3,6 @@ from . import views
 
 urlpatterns = [
     path('', views.payment, name='payment'),
-    path('get-form-data/', views.get_form_data, name='get-form-data'),
     path('config/', views.stripe_config),
     path(
         'create-checkout-session/',
