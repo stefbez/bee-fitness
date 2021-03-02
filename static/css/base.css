@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: url('../../media/cross-trainer.jpg') no-repeat center center fixed;
+    background: url('../../media/cross-trainer.jpg') no-repeat 70% 40% fixed;
     background-size: cover;
     height: calc(100vh - 64px);
 }
