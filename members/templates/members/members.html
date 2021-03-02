@@ -18,8 +18,10 @@
             <h1>Members {{ user.paidmember }}</h1>
             <div class="membership-card">
         {% load qr_code %}
-            {% qr_from_text user.paidmember %}
+            {% qr_from_text '{{ user.id }}' %}
             <p>End date: {{ user.paidmember.end_date }}</p>
+            <p>user id {{ user.id }}</p>
+            <p>user name {{ user.userinfo.first_name }}</p>
         </div>
         </div>
     </div>
