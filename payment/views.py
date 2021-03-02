@@ -19,9 +19,12 @@ import stripe
 def payment(request):
     """ A view to return the payment page """
     # get the user from the DB
-    user = UserInfo.objects.get(user=request.user)
-    form = UserInfoForm(instance=user)
-    print(form)
+    try:
+        user = UserInfo.objects.get(user=request.user)
+        form = UserInfoForm(instance=user)
+        print(form)
+    except UserInfo.DoesNotExist:
+        form = UserInfoForm()
 
     if request.method == 'POST':
         print('IF POST WORKS')
@@ -33,7 +36,12 @@ def payment(request):
             'postcode': request.POST['postcode'],
         }
 
-        user_info = UserInfoForm(request.POST, instance=user)
+        try:
+            user = UserInfo.objects.get(user=request.user)
+            user_info = UserInfoForm(request.POST, instance=user)
+        except UserInfo.DoesNotExist:
+            user_info = UserInfoForm(request.POST)
+
         temp = user_info.save(commit=False)
         temp.user = request.user
         # temp['user'] = request.user

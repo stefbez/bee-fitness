@@ -11,10 +11,6 @@ def members(request):
     if not request.user.is_authenticated:
         return redirect(reverse('home'))
 
-        context = {
-            'user': user,
-        }
-
         try:
             get_user = get_object_or_404(User, username=user)
 
