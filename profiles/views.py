@@ -7,10 +7,10 @@ from payment.forms import UserInfoForm
 
 
 @login_required
-def user_profile(request, user):
+def user_profile(request):
     """ A view to return the profile page """
 
-    get_user = get_object_or_404(user, username=user)
+    get_user = get_object_or_404(UserProfile, user=request.user)
 
     user = UserInfo.objects.get(user=request.user)
     form = UserInfoForm(instance=user)
