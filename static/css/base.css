@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: url('../../media/cross-trainer.jpg') no-repeat 70% 40% fixed;
+    background: url('/media/cross-trainer.jpg') no-repeat 70% 40% fixed;
     background-size: cover;
     height: calc(100vh - 64px);
 }
@@ -26,6 +26,46 @@ ul.desktop-nav-links.navbar-nav {
         padding-top: 64px;
     }
 
+/* Home app - Headers */
+
+.home-header {
+    height: 50vh;
+    position: relative;
+}
+
+.header-about {
+    background: url('/media/treadmill.jpg') no-repeat center fixed;
+}
+
+.header-gym {
+    background: url('/media/arm-press.jpg') no-repeat 65% 70% fixed;
+}
+
+.header-racquets {
+    background: url('/media/tennis.jpg') no-repeat center fixed;
+}
+
+.header-swim-spa {
+    background: url('/media/swimming.jpg') no-repeat 80% 50% fixed;
+}
+
+.header-about,
+.header-gym,
+.header-racquets,
+.header-swim-spa {
+    height: 100%;
+    background-size: cover;
+    background-blend-mode: hard-light;
+    background-color: #5f5d30;
+}
+
+.home-header--text {
+    position: absolute;
+    bottom: 0;
+    margin: 0 auto;
+    width: 100%;
+    color: white;
+} 
 
 /* Allauth form formatting */
 
