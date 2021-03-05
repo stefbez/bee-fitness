@@ -6,6 +6,7 @@ body {
     background: url('/media/cross-trainer.jpg') no-repeat 70% 40% fixed;
     background-size: cover;
     height: calc(100vh - 64px);
+
 }
 
 /* Navbar */
@@ -20,6 +21,21 @@ ul.desktop-nav-links.navbar-nav {
 
 .bf-logo.mobile-nav img {
     max-height: 60px;
+}
+
+/* colours */
+
+.bg-yellow {
+    background-color: rgb(245, 191, 106);
+}
+
+body,
+.header-about,
+.header-racquets,
+.header-gym,
+.header-swim-spa {
+    background-blend-mode: multiply;
+    background-color: rgba(245, 191, 106, 0.2);
 }
 
 /* Overlay */
@@ -67,8 +83,6 @@ ul.desktop-nav-links.navbar-nav {
 .header-swim-spa {
     height: 100%;
     background-size: cover;
-    background-blend-mode: hard-light;
-    background-color: #5f5d30;
 }
 
 .home-header--text {
