@@ -17,8 +17,9 @@
         <div class="col">
             <h1>Profile {{ request.user.username }}</h1>
             <h1>user {{ request.user.name }}</h1>
-            <form>{{ form }}
-                <input type="text" name="email" value="{{ email }}">
+<form action="{% url 'user_profile' %}" method="POST" id="profile-form">
+    {% csrf_token %}
+                {{ form | crispy }}
                 <input type="submit" value="Submit">
             </form>
             

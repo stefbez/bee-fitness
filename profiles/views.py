@@ -17,7 +17,7 @@ def user_profile(request):
         user = UserInfo.objects.get(user=request.user)
     form = UserProfileForm(instance=user_profile)
     print(form)
-    form = UserInfoForm()
+    form = UserInfoForm(instance=user)
     if request.method == 'POST':
         print('IF POST WORKS')
         form = UserProfileForm(request.POST, instance=user_profile)
@@ -29,14 +29,13 @@ def user_profile(request):
                 'first_line_address': request.POST['first_line_address'],
                 'postcode': request.POST['postcode'],
             }
-            form.save()
 
         user = UserInfo.objects.get(user=request.user)
         user_info = UserInfoForm(request.POST, instance=user)
 
         temp = user_info.save(commit=False)
         temp.user = request.user
-        temp['user'] = request.user
+        # temp['user'] = request.user
         if user_info.is_valid():
             temp.save()
 
@@ -46,10 +45,8 @@ def user_profile(request):
     # user_info = UserInfoForm
     context = {
             'form': form,
-            'email': request.user.email,
-            # 'password': request.user.password,
-            # "user_info": user_info,
-            # "user_info": form
+            "user_info": user_info,
+            "user_info": form
         }
     if user_info:
         context['user'] = user_info
