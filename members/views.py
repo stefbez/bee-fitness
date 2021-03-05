@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from profiles.models import UserProfile
 from django.contrib.auth.models import User
 from qr_code.qrcode.utils import ContactDetail, QRCodeOptions
+from .models import ExercisePlan
 
 
 DEMO_CONTACT = ContactDetail(
@@ -46,6 +47,15 @@ def members(request):
     #         return render(request, 'members/members.html', context)
     #     except Exception as e:
     #         return render(request, 'members/members.html', context)
+    return render(request, 'members/members.html', context)
+
+@login_required
+def exercise_plan(request):
+    exercise_plan = ExercisePlan.objects.get(exercise_plan=request.user)
+    if exercise_plan:
+        context = {
+            'exercise_plan': exercise_plan
+        }
     return render(request, 'members/members.html', context)
 
 
