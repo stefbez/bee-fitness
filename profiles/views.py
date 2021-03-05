@@ -4,46 +4,53 @@ from .models import UserProfile
 from payment.models import UserInfo
 from payment.admin import UserInfoAdmin
 from payment.forms import UserInfoForm
+from .forms import UserProfileForm
 
 
 @login_required
 def user_profile(request):
     """ A view to return the profile page """
 
-    get_user = get_object_or_404(UserProfile, user=request.user)
-
-    user = UserInfo.objects.get(user=request.user)
-    form = UserInfoForm(instance=user)
+    user_profile = get_object_or_404(UserProfile, user=request.user)
+    user_info = UserInfo.objects.filter(user=request.user).first()
+    if user_info:
+        user = UserInfo.objects.get(user=request.user)
+    form = UserProfileForm(instance=user_profile)
     print(form)
-
+    form = UserInfoForm()
     if request.method == 'POST':
         print('IF POST WORKS')
-        form_data = {
-            'first_name': request.POST['first_name'],
-            'last_name': request.POST['last_name'],
-            'phone_number': request.POST['phone_number'],
-            'first_line_address': request.POST['first_line_address'],
-            'postcode': request.POST['postcode'],
-        }
+        form = UserProfileForm(request.POST, instance=user_profile)
+        if form.is_valid():
+            form.save()
+            form_data = {
+                'first_name': request.POST['first_name'],
+                'last_name': request.POST['last_name'],
+                'phone_number': request.POST['phone_number'],
+                'first_line_address': request.POST['first_line_address'],
+                'postcode': request.POST['postcode'],
+            }   
 
         user = UserInfo.objects.get(user=request.user)
         user_info = UserInfoForm(request.POST, instance=user)
 
-        temp = user_info.save(commit=False)
-        temp.user = request.user
+        # temp = user_info.save(commit=False)
+        # temp.user = request.user
             # temp['user'] = request.user
             # if user_info.is_valid():
-        temp.save()
+        # temp.save()
 
         return redirect(reverse('user_profile'))
 
-    user_profile = get_object_or_404(UserProfile, user=get_user)
-    user_info = UserInfoForm
+    # user_profile = get_object_or_404(UserProfile, user=get_user)
+    # user_info = UserInfoForm
     context = {
-            'user_profile': user_profile,
-            'user': user,
-            "user_info": user_info,
-            "user_info": form
+            'form': form,
+            'email': request.user.email,
+            # "user_info": user_info,
+            # "user_info": form
         }
+    if user_info:
+        context['user'] = user_info
 
     return render(request, 'profiles/profile.html', context)
