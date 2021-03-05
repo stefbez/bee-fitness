@@ -8,9 +8,21 @@ body {
     height: calc(100vh - 64px);
 }
 
+/* Navbar */
+
 ul.desktop-nav-links.navbar-nav {
     flex-direction: row;
 }
+
+.bf-logo img {
+ max-height: 75px;
+}
+
+.bf-logo.mobile-nav img {
+    max-height: 60px;
+}
+
+/* Overlay */
 
 .overlay {
 	height: 100%;
