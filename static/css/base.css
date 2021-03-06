@@ -22,6 +22,13 @@ h1 {
     font-family: 'Bebas Neue', cursive;
 }
 
+/* Font Styling */
+
+i.fas.fa-lock {
+    font-size: 80px;
+    color: rgb(0, 0, 0);
+}
+
 /* Navbar */
 
 ul.desktop-nav-links.navbar-nav {
@@ -42,12 +49,27 @@ ul.desktop-nav-links.navbar-nav {
     background-color: rgb(245, 191, 106);
 }
 
-.join-gym-btn {
+.black-btn {
     background-color: rgb(0, 0, 0);
     color: rgb(245, 191, 106);
 }
 
-.overlay.overlay-member-subscribe {
+.black-btn.btn:focus {
+    box-shadow: 0 0 0 2px rgb(0 0 0 / 30%);
+}
+
+.black-btn.btn:hover {
+    color: rgb(0, 0, 0);
+    background-color: rgb(245, 191, 106);
+    border: 2px solid black;
+}
+
+.yellow-btn {
+    background-color: rgb(245, 191, 106);
+    color: rgb(0, 0, 0);
+}
+
+.overlay.overlay-grey {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
@@ -119,10 +141,13 @@ body,
 
 .member-subscribe {
     background-color: #f5bf6a;
-    height: 30vh;
-    min-height: 200px;
+    padding: 30px;
     text-align: center;
-    margin-top: 25vh;
+    margin: 25vh 0;
+}
+
+.alert-text {
+    margin-top: 1rem;
 }
 
 /* Allauth form formatting */

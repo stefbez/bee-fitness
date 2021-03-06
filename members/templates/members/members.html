@@ -50,13 +50,13 @@
     </div>
 </div>
     {% else %}
-    <div class="overlay overlay-member-subscribe"></div>
+    <div class="overlay overlay-grey"></div>
 <div class="container">
     <div class="row">
         <div class="col-12 member-subscribe">
             <i class="fas fa-lock"></i>
-           <p>Please subscribe to access the member content.</p>
-            <a href="{% url 'payment' %}" class="join-gym-btn btn btn-lg">
+           <p class="alert-text">Please subscribe to access the member content.</p>
+            <a href="{% url 'payment' %}" class="black-btn btn btn-lg">
                     Join the Gym</a>
         </div>
     </div>
