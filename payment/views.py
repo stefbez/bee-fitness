@@ -150,10 +150,11 @@ def stripe_webhook(request):
 
 
 def check_paid_status():
-    # date = datetime.now()
-    # end_dates = PaidMember.objects.filter(end_date__lte=date)
-    # end_dates.delete()
-    now = datetime.datetime.now()
-    paid_member = PaidMember.objects.get(user=request.user)
-    if paid_member.end_date < now:
-        paid_member.delete()
+    date = datetime.now()
+    end_dates = PaidMember.objects.filter(end_date__lte=date)
+    print(end_dates)
+    end_dates.delete()
+    # now = datetime.datetime.now()
+    # paid_member = PaidMember.objects.get(user=request.user)
+    # if paid_member.end_date < now:
+    #     paid_member.delete()
