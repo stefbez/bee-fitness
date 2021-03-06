@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light bg-yellow d-none d-md-flex fixed-top px-2">
+<nav class="navbar nav-desktop navbar-light bg-yellow d-none d-md-flex fixed-top">
     <a href="{% url 'home' %}" class="bf-logo">
         <img src="{{MEDIA_URL}}bf-logo.png"
             alt="test image logo">
@@ -27,10 +27,10 @@
     </ul>
 
     <div class="dropdown">
-        <a href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="acc-link">
             <div class="text-center">
                 <div><i class="fas fa-user fa-lg"></i></div>
-                <p class="my-0">My Account</p>
+                <p class="my-0 acc-link">My Account</p>
             </div>
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

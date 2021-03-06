@@ -14,16 +14,16 @@
     <div class="row h-100">
         <div class="col my-auto">
             {% if user.paidmember %}
-            <h1 class="display-4">Welcome Back {{ request.user }}</h1>
+            <h1 class="callout-text">Welcome Back {{ request.user.userinfo.first_name }}</h1>
             {% else %}
-            <h1 class="display-4">TEXT TEXT TEXT</h1>
+            <h1 class="callout-text">Join<br/><span class="yellow-text">Bee Fitness</span><br>Today</h1>
             {% endif %}
             <div class="my-5">
                 {% if user.paidmember %}
-                <a href="{% url 'members' %}" class="btn btn-lg">
+                <a href="{% url 'members' %}" class="yellow-btn btn btn-lg btn-font-lg">
                     Members Area</a>
                 {% else %}
-                <a href="{% url 'payment' %}" class="btn btn-lg">
+                <a href="{% url 'payment' %}" class="yellow-btn btn btn-lg btn-font-lg">
                     Join the Gym</a>
                 {% endif %}
             </div>
