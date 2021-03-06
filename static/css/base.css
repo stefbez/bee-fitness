@@ -77,7 +77,8 @@ body,
 .header-about,
 .header-racquets,
 .header-gym,
-.header-swim-spa {
+.header-swim-spa,
+.header-members {
     background-blend-mode: multiply;
     background-color: rgba(245, 191, 106, 0.2);
 }
@@ -98,7 +99,7 @@ body,
         padding-top: 91px;
     }
 
-/* Home app - Headers */
+/* Home & members app - Headers */
 
 .home-header {
     height: 50vh;
@@ -121,10 +122,15 @@ body,
     background: url('/media/swimming.jpg') no-repeat 80% 50% fixed;
 }
 
+.header-members {
+    background: url('/media/gym.jpg') no-repeat 80% 50% fixed;
+}
+
 .header-about,
 .header-gym,
 .header-racquets,
-.header-swim-spa {
+.header-swim-spa
+.header-members {
     height: 100%;
     background-size: cover;
 }

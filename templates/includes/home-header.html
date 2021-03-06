@@ -16,5 +16,9 @@
     <div class="header-swim-spa">
     <h1 class="home-header--text">Swim & Spa</h1>
     </div>
+    {% elif request.get_full_path == "/members/" %}
+    <div class="header-members">
+    <h1 class="home-header--text">Member Area</h1>
+    </div>
     {% endif %}
 </header>
