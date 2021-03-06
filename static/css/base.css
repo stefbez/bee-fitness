@@ -159,6 +159,12 @@ body,
         padding-top: 95px;
     }
 
+@media (max-width: 768px) {
+    .header-container {
+        padding-top: 70px;
+    }
+}
+
 /* Home & members app - Headers */
 
 .home-header {
@@ -198,10 +204,85 @@ body,
 /* Members */
 
 .member-subscribe {
-    background-color: #f5bf6a;
+    background-color: rgb(249, 189, 89);
     padding: 30px;
     text-align: center;
     margin: 25vh 0;
+}
+
+.membership-card-row {
+    height: 40vh;
+    min-height: 450px;
+}
+
+.membership-card {
+    width: 80vw;
+    max-width: 700px;
+    padding: 20px;
+    background-color: transparent;
+    height: 40vh;
+    perspective: 1000px;
+    margin: auto;
+}
+
+.membership-card-img {
+    width: 100%;
+}
+
+.mobile-view {
+    display: none;
+}
+
+@media (max-width: 567px) {
+    .membership-card-row {
+        display: none;
+    }
+    .mobile-view {
+        display: block;
+        height: fit-content;
+        background-color: rgb(249, 189, 89);
+        text-align: center;
+        margin: 50px;
+        padding: 50px;
+    }
+}
+
+/* This container is needed to position the front and back side */
+.membership-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.membership-card:hover .membership-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.membership-card-front, .membership-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.membership-card-front {
+  background-color: rgb(249, 189, 89);
+  color: black;
+}
+
+/* Style the back side */
+.membership-card-back {
+  background-color: rgb(249, 189, 89);
+  color: black;
+  transform: rotateY(180deg);
+  height: auto;
 }
 
 .alert-text {
