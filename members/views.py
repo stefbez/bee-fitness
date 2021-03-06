@@ -50,18 +50,33 @@ def members(request):
     #         return render(request, 'members/members.html', context)
     #     except Exception as e:
     #         return render(request, 'members/members.html', context)
-    return render(request, 'members/members.html', context)
-
-@login_required
-def exercise_plan(request):
-    exercise_plan = ExercisePlan.objects.get(exercise_plan=request.user)
+    exercise_plans = ExercisePlan.objects.filter(user=request.user)
+    member_user = request.user
     date = datetime.now()
-    if exercise_plan:
+    print("Printing", exercise_plans)
+    if exercise_plans:
         context = {
-            'exercise_plan': exercise_plan
+            'member_user': member_user,
+            'exercise_plans': exercise_plans,
         }
+        print('If statement works')
     date = datetime.strftime(date, '%d %B %Y')
     return render(request, 'members/members.html', context)
+
+# @login_required
+# def exercise_plan(request):
+#     exercise_plans = ExercisePlan.objects.get(user=request.user)
+#     user = get_object_or_404(User, user=request.user)
+#     date = datetime.now()
+#     print("Printing", exercise_plans)
+#     if exercise_plans:
+#         context = {
+#             'user': user,
+#             'exercise_plans': exercise_plans,
+#         }
+#         print('If statement works')
+#     date = datetime.strftime(date, '%d %B %Y')
+#     return render(request, 'members/members.html', context)
 
 
 # def my_view(request):

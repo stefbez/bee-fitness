@@ -23,23 +23,25 @@
                 {% qr_from_text "{{ user }}" %}
                 <p>End date: {{ user.paidmember.end_date }}</p>
                 <p>user id {{ user.id }}</p>
-                <p>user name {{ user.userinfo.first_name }}</p>
+                <p>users name {{ user.userinfo.first_name }}</p>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col">
 
-            <h1>Exercise Plan {{ user }} {{ members.exerciseplan }}</h1>
+            <h1>Exercise Plan {{ user }} {{ exercise_plans }}</h1>
 
-            <h1>{{ user.exerciseplan.date }} - date</h1>
-            <h1>{{ user.exerciseplan.title }} - title</h1>
-            <h1>{{ user.exerciseplan.warmup_time }} warmup_time</h1>
-            <h1>{{ user.exerciseplan.warmup_instructions }} warmup_instructions</h1>
-            <h1>{{ user.exerciseplan.main_exercise_time }} main_exercise_time</h1>
-            <h1>{{ user.exerciseplan.exercise_instructions }} exercise_instructions</h1>
-            <h1>{{ user.exerciseplan.cooldown_time }} cooldown_time</h1>
-            <h1>{{ user.exerciseplan.cooldown_instructions }} cooldown_instructions</h1>
+            {% for plan in exercise_plans %}
+            <h1>{{ plan.date }} - date</h1>
+            <h1> {{ plan.title }} - title</h1>
+            <h1>{{ plan.warmup_time }} warmup_time</h1>
+            <h1>{{ plan.warmup_instructions }} warmup_instructions</h1>
+            <h1>{{ plan.main_exercise_time }} main_exercise_time</h1>
+            <h1>{{ plan.exercise_instructions }} exercise_instructions</h1>
+            <h1>{{ plan.cooldown_time }} cooldown_time</h1>
+            <h1>{{ plan.cooldown_instructions }} cooldown_instructions</h1>
+            {% endfor %}
 
             <h1>No PT PLANS</h1>
          

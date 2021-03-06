@@ -9,14 +9,14 @@ class ExercisePlan(models.Model):
     date = models.DateTimeField(max_length=80,
                                 null=False, blank=False)
     title = models.CharField(max_length=100)
-    warmup_time = models.IntegerField(null=False, blank=True)
+    warmup_time = models.IntegerField(null=True, blank=True)
     warmup_instructions = models.TextField(
-        max_length=100, null=False, blank=True)
+        max_length=100, null=True, blank=True)
     main_exercise_time = models.IntegerField()
     exercise_instructions = models.TextField(max_length=100)
-    cooldown_time = models.IntegerField(null=False, blank=True)
+    cooldown_time = models.IntegerField(null=True, blank=True)
     cooldown_instructions = models.TextField(
-        max_length=100, null=False, blank=True)
+        max_length=100, null=True, blank=True)
 
     def __str__(self):
         return self.user.username
