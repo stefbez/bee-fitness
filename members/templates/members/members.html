@@ -11,8 +11,10 @@
 
 
 {% block content %}
+{% if user.paidmember %}
 <div class="overlay"></div>
 <div class="container">
+    
     <div class="row">
         <div class="col">
             <h1>Members {{ user.paidmember }}</h1>
@@ -27,10 +29,36 @@
     </div>
     <div class="row">
         <div class="col">
-            <h1>Exercise Plan</h1>
-            <h1>{{ user.exerciseplan.title }}</h1>
-            <h1>{{ user.exerciseplan.exercise_instructions }}</h1>
+
+            <h1>Exercise Plan {{ user }} {{ members.exerciseplan }}</h1>
+
+            <h1>{{ user.exerciseplan.date }} - date</h1>
+            <h1>{{ user.exerciseplan.title }} - title</h1>
+            <h1>{{ user.exerciseplan.warmup_time }} warmup_time</h1>
+            <h1>{{ user.exerciseplan.warmup_instructions }} warmup_instructions</h1>
+            <h1>{{ user.exerciseplan.main_exercise_time }} main_exercise_time</h1>
+            <h1>{{ user.exerciseplan.exercise_instructions }} exercise_instructions</h1>
+            <h1>{{ user.exerciseplan.cooldown_time }} cooldown_time</h1>
+            <h1>{{ user.exerciseplan.cooldown_instructions }} cooldown_instructions</h1>
+
+            <h1>No PT PLANS</h1>
+         
+
         </div>
     </div>
 </div>
+    {% else %}
+    <div class="overlay overlay-member-subscribe"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 member-subscribe">
+           <p>Please subscribe to access the member content.</p>
+            <a href="{% url 'payment' %}" class="join-gym-btn btn btn-lg">
+                    Join the Gym</a>
+        </div>
+    </div>
+</div>
+
+    {% endif %}
+    
 {% endblock %}

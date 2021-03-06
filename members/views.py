@@ -6,6 +6,9 @@ from django.contrib.auth.models import User
 from qr_code.qrcode.utils import ContactDetail, QRCodeOptions
 from .models import ExercisePlan
 
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
+
 
 DEMO_CONTACT = ContactDetail(
         first_name='John',
@@ -52,10 +55,12 @@ def members(request):
 @login_required
 def exercise_plan(request):
     exercise_plan = ExercisePlan.objects.get(exercise_plan=request.user)
+    date = datetime.now()
     if exercise_plan:
         context = {
             'exercise_plan': exercise_plan
         }
+    date = datetime.strftime(date, '%d %B %Y')
     return render(request, 'members/members.html', context)
 
 

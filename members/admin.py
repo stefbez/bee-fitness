@@ -7,6 +7,7 @@ class ExercisePlanAdmin(admin.ModelAdmin):
     """ Premium User Admin """
     list_display = (
         'user',
+        'date',
         'title',
         'warmup_time',
         'warmup_instructions',

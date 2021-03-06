@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='exerciseplan',
             name='cooldown_time',
-            field=models.IntegerField(blank=True, default=''),
+            field=models.IntegerField(blank=True, default=0),
         ),
         migrations.AddField(
             model_name='exerciseplan',
@@ -33,6 +33,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='exerciseplan',
             name='warmup_time',
-            field=models.IntegerField(blank=True, default=''),
+            field=models.IntegerField(blank=True, default=0),
         ),
     ]

@@ -29,6 +29,15 @@ ul.desktop-nav-links.navbar-nav {
     background-color: rgb(245, 191, 106);
 }
 
+.join-gym-btn {
+    background-color: rgb(0, 0, 0);
+    color: rgb(245, 191, 106);
+}
+
+.overlay.overlay-member-subscribe {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
 body,
 .header-about,
 .header-racquets,
@@ -92,6 +101,16 @@ body,
     width: 100%;
     color: white;
 } 
+
+/* Members */
+
+.member-subscribe {
+    background-color: #f5bf6a;
+    height: 30vh;
+    min-height: 200px;
+    text-align: center;
+    margin-top: 25vh;
+}
 
 /* Allauth form formatting */
 
