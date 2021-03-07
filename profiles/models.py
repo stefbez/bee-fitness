@@ -11,7 +11,6 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=100, null=True, blank=True)
     last_name = models.CharField(max_length=100, null=True, blank=True)
-    phone_number = models.CharField(max_length=100, null=True, blank=True)
     first_line_address = models.CharField(max_length=100, null=True, blank=True)
     postcode = models.CharField(max_length=100, null=True, blank=True)
 

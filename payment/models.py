@@ -9,7 +9,6 @@ class UserInfo(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    phone_number = models.CharField(max_length=100)
     first_line_address = models.CharField(max_length=100)
     postcode = models.CharField(max_length=100)
 

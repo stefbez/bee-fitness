@@ -21,7 +21,6 @@ class UserInfoAdmin(admin.ModelAdmin):
         'user',
         'first_name',
         'last_name',
-        'phone_number',
         'first_line_address',
         'postcode',
     )

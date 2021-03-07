@@ -25,7 +25,6 @@ def user_profile(request):
             form_data = {
                 'first_name': request.POST['first_name'],
                 'last_name': request.POST['last_name'],
-                'phone_number': request.POST['phone_number'],
                 'first_line_address': request.POST['first_line_address'],
                 'postcode': request.POST['postcode'],
             }
