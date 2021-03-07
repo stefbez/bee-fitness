@@ -25,55 +25,61 @@
             <div class="membership-card">
                 <div class="membership-card-inner">
                     <div class="membership-card-front">
-                        <img src="{{MEDIA_URL}}bf-membership.png"
-                            alt="membership card" class="membership-card-img">
+                        <img src="{{MEDIA_URL}}bf-membership.png" alt="membership card" class="membership-card-img">
                     </div>
                     <div class="membership-card-back">
                         {% load qr_code %}
-                {% qr_from_text "{{ user }}" %}
-                <p>End date: {{ user.paidmember.end_date }}</p>
-                <p>user id {{ user.id }}</p>
-                <p>users name {{ user.userinfo.first_name }}</p>
+                        {% qr_from_text "" %}
+                        <p class="membership-card-name">{{ user.userinfo.first_name }} {{ user.userinfo.last_name }}</p>
+                        <p class="membership-card-text">Subscription Ends: {{ user.paidmember.end_date.date }}</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col">
+    <hr class="yellow-hr">
+    <h1 class="text-center">Exercise Plan - Personal Training</h1>
+    <hr class="yellow-hr">
+    <div class="row overflow-auto exercise-plans">
+        <div class="col text-center">
 
-            <h1>Exercise Plan {{ user }} {{ exercise_plans }}</h1>
 
             {% for plan in exercise_plans %}
-            <h1>{{ plan.date }} - date</h1>
-            <h1> {{ plan.title }} - title</h1>
-            <h1>{{ plan.warmup_time }} warmup_time</h1>
-            <h1>{{ plan.warmup_instructions }} warmup_instructions</h1>
-            <h1>{{ plan.main_exercise_time }} main_exercise_time</h1>
-            <h1>{{ plan.exercise_instructions }} exercise_instructions</h1>
-            <h1>{{ plan.cooldown_time }} cooldown_time</h1>
-            <h1>{{ plan.cooldown_instructions }} cooldown_instructions</h1>
+            <p class="exercise-plan-sm-text">{{ plan.date.date }}</p>
+            <p class="exercise-plan-lg-text">{{ plan.title }}</p>
+            {% if not plan.warmup_time == None %}
+            <p class="exercise-plan-sm-text">Warmup for {{ plan.warmup_time }} mins</p>
+            {% endif %}
+            <p class="exercise-plan-sm-text">{{ plan.warmup_instructions }}</p>
+            <p class="exercise-plan-sm-text">Main exercise for {{ plan.main_exercise_time }} mins</p>
+            <p class="exercise-plan-sm-text">{{ plan.exercise_instructions }}</p>
+            {% if not plan.warmup_time == None %}
+            <p class="exercise-plan-sm-text">Cooldown for {{ plan.cooldown_time }} mins</p>
+            {% endif %}
+            <p class="exercise-plan-sm-text">{{ plan.cooldown_instructions }}</p>
+            <hr class="black-hr">
             {% endfor %}
-
+            {% if not exercise_plans %}
             <h1>No PT PLANS</h1>
-         
+            <p class="exercise-plan-sm-text">Contact your gym rep if you think you should have a PT plan</p>
+            {% endif %}
 
         </div>
     </div>
 </div>
-    {% else %}
-    <div class="overlay overlay-grey"></div>
+{% else %}
+<div class="overlay overlay-grey"></div>
 <div class="container">
     <div class="row">
         <div class="col-12 member-subscribe">
             <i class="fas fa-lock"></i>
-           <p class="alert-text">Please subscribe to access the member content.</p>
+            <p class="alert-text">Please subscribe to access the member content.</p>
             <a href="{% url 'payment' %}" class="black-btn btn btn-lg">
-                    Join the Gym</a>
+                Join the Gym</a>
         </div>
     </div>
 </div>
 
-    {% endif %}
-    
+{% endif %}
+
 {% endblock %}
