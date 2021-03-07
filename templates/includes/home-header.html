@@ -24,5 +24,13 @@
     <div class="header-profile">
     <h1 class="home-header--text">{{ request.user.userinfo.first_name }}'s Profile</h1>
     </div>
+    {% elif request.get_full_path == "/payment/" %}
+    <div class="header-payment">
+    <h1 class="home-header--text">Sign Up</h1>
+    </div>
+    {% elif request.get_full_path == "/payment/cancel/" %}
+    <div class="header-payment">
+    <h1 class="home-header--text">Payment Cancelled</h1>
+    </div>
     {% endif %}
 </header>

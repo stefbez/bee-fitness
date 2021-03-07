@@ -66,7 +66,12 @@ a.nav-link {
     font-size: 16px;
 }
 
-.exercise-plan-lg-text {
+.payment-text {
+    font-size: 18px;
+}
+
+.exercise-plan-lg-text,
+.payment-lg-text {
     font-size: 24px;
     text-decoration: underline;
 }
@@ -155,6 +160,21 @@ h1.callout-text {
     border: 2px solid rgb(249, 189, 89);
 }
 
+.red-btn {
+    background-color: rgb(230, 14, 14);
+    color: rgb(255, 255, 255);
+}
+
+.red-btn.btn:focus {
+    box-shadow: 0 0 0 2px rgb(0 0 0 / 30%);
+}
+
+.red-btn.btn:hover {
+    color: rgb(230, 14, 14);
+    background-color: rgb(0, 0, 0);
+    border: 2px solid rgb(230, 14, 14);
+}
+
 .overlay.overlay-grey {
     background-color: rgba(0, 0, 0, 0.7);
 }
@@ -165,7 +185,8 @@ body,
 .header-gym,
 .header-swim-spa,
 .header-members,
-.header-profile {
+.header-profile,
+.header-payment {
     background-blend-mode: multiply;
     background-color: rgba(245, 191, 106, 0.2);
 }
@@ -223,12 +244,17 @@ body,
     background: url('/media/tennis-2.jpg') no-repeat 80% 50% fixed;
 }
 
+.header-payment {
+    background: url('/media/stretch.jpg') no-repeat 70% 0% fixed;
+}
+
 .header-about,
 .header-gym,
 .header-racquets,
 .header-swim-spa,
 .header-members,
-.header-profile {
+.header-profile,
+.header-payment {
     height: 100%;
     background-size: cover;
 }
@@ -347,11 +373,18 @@ body,
     margin-bottom: 20px;
 }
 
-.profile-submit-btn {
+.profile-submit-btn,
+.payment-submit-btn {
     margin: 20px 0;
 }
 
-/* Allauth form formatting */
+/* Payment */
+
+.payment-lg-text {
+    margin-top: 20px;
+}
+
+/* Allauth form formatting - From Code institute Boutique Ado Project */
 
 .allauth-form-inner-content p {
     margin-top: 1.5rem; /* mt-4 */

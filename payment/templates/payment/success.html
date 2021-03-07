@@ -12,17 +12,23 @@
 
 {% block content %}
 <div class="overlay"></div>
+<header class="text-center align-text-bottom w-100 home-header">
+<div class="header-payment">
+    <h1 class="home-header--text">Welcome to Bee Fitness</h1>
+    </div>
+    </header>
 <div class="container">
     <div class="row">
         <div class="col">
-            <h1>Success</h1>
-
-            <p>user {{ user }}</p>
-<p>start {{ start_date }}</p>
-<p>end {{ end_date }}</p>
-<p>user info {{ userinfo }}</p>
-<p>user user info {{ user.userinfo.first_name }}</p>
-
+            <div class="text-center">
+                <p class="payment-lg-text">Your payment was successful!</p>
+                <hr class="yellow-hr">
+                <p class="payment-text">Welcome to Bee Fitness, we hope you enjoy the next year's subscription</p>
+                <hr class="yellow-hr">
+                </div>
+                 <div class="text-center payment-submit-btn">
+                    <a href="{% url 'members' %}" class="yellow-btn btn btn-lg" id="submitBtn">Members Area</a>
+                </div>
         </div>
     </div>
 </div>

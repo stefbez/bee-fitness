@@ -11,30 +11,28 @@
 
 
 {% block content %}
-<div class="overlay"></div>
+{% include 'includes/home-header.html' %}
 <div class="container">
     <div class="row">
         <div class="col">
-            <h1>Payment</h1>
-                <h2></h2>
-
+            
 {% if user.paidmember %}
 
 <h1>Subscription Already Active.</h1>
 
-<p>were you looking for the <a href="{% url 'members' %}">Members Area</a>?</p>
+<p class="payment-text">Were you looking for the <a href="{% url 'members' %}">Members Area</a>?</p>
 
 <p>user {{ user }}</p>
 <p>start {{ start_date }}</p>
 <p>end {{ user.paidmember.end_date }}</p>
 <p>user user info {{ user.userinfo.first_name }}</p>
 
-{% endif %}
+{% else %}
 
-{% if not user.paidmember %}
-
-<h1>{{ request.user.id }}</h1>
-
+{% if not user.userinfo %}
+<div class="text-center">
+<p class="payment-lg-text">Please fill in your details</p>
+</div>
 <form action="{% url 'payment' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset class="rounded px-3 mb-5">
@@ -48,17 +46,25 @@
                         {{ user_info.first_line_address | as_crispy_field }}
                         {{ user_info.postcode | as_crispy_field }}
                     </fieldset>
-<div class="container mt-5">
-      <button type="submit" class="btn btn-primary" id="addInfo">Add info</button>
+ <div class="text-center payment-submit-btn">
+      <button type="submit" class="yellow-btn btn btn-lg" id="addInfo">Add info</button>
     </div>
                     
                 </form>
 
-
-<div class="container mt-5">
-      <button type="submit" class="btn btn-primary" id="submitBtn">Subscribe</button>
-    </div>
-
+                {% else %}
+                <div class="text-center">
+                <p class="payment-lg-text">Thank you for filling in your details {{ userinfo.first_name }}</p>
+                <hr class="yellow-hr">
+                <p class="payment-text">Join now for as little as £599 for the year. Access to all areas of the fitness club: Gym, Pool & Spa, Racquets and more!</p>
+                <p class="payment-text">When signing up you also get access to our Personal Trainer Exercise Plan available whenever you need it in the members section of this site. You'll also have your membership card in the members section so you can access the club with your phone!</p>
+                <hr class="yellow-hr">
+                </div>
+                 <div class="text-center payment-submit-btn">
+                    <button type="submit" class="yellow-btn btn btn-lg" id="submitBtn">Subscribe</button>
+                </div>
+                
+                {% endif %}
 
             
 
@@ -68,9 +74,14 @@
 
 {% endif %}
 
+{% if user.is_staff %}
 <form action="check-paid-status" method="GET">
-<button type="submit" class="yellow-btn btn btn-lg"> DELETE USERS</button>
+    <div class="text-center payment-submit-btn">
+<button type="submit" class="red-btn btn btn-lg"> DELETE USERS</button>
+</div>
 </form>
+
+{% endif %}
 <!-- <a href="" name="check-paid-status" id="check-paid-status" class="btn btn-lg">
                     Delete USERS</a> -->
 
