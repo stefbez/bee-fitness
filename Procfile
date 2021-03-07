@@ -1,0 +1,1 @@
+web: gunicorn bee_fitness.wsgi:application
