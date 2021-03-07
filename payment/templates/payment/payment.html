@@ -18,15 +18,21 @@
             
 {% if user.paidmember %}
 
-<h1>Subscription Already Active.</h1>
-
-<p class="payment-text">Were you looking for the <a href="{% url 'members' %}">Members Area</a>?</p>
-
-<p>user {{ user }}</p>
-<p>start {{ start_date }}</p>
-<p>end {{ user.paidmember.end_date }}</p>
-<p>user user info {{ user.userinfo.first_name }}</p>
-
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="text-center">
+                <p class="payment-lg-text">Subscription Already Active</p>
+                <hr class="yellow-hr">
+                <p class="payment-text">Were you looking for the Members Area?</p>
+                <hr class="yellow-hr">
+                </div>
+                 <div class="text-center payment-submit-btn">
+                    <a href="{% url 'members' %}" class="yellow-btn btn btn-lg">Members Area</a>
+                </div>
+        </div>
+    </div>
+</div>
 {% else %}
 
 {% if not user.userinfo %}
