@@ -15,64 +15,67 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            
-{% if user.paidmember %}
 
-<div class="container">
-    <div class="row">
-        <div class="col">
+            {% if user.paidmember %}
+
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="text-center">
+                            <p class="payment-lg-text">Subscription Already Active</p>
+                            <hr class="yellow-hr">
+                            <p class="payment-text">Were you looking for the Members Area?</p>
+                            <hr class="yellow-hr">
+                        </div>
+                        <div class="text-center payment-submit-btn">
+                            <a href="{% url 'members' %}" class="yellow-btn btn btn-lg">Members Area</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+
+            {% if not user.userinfo %}
             <div class="text-center">
-                <p class="payment-lg-text">Subscription Already Active</p>
-                <hr class="yellow-hr">
-                <p class="payment-text">Were you looking for the Members Area?</p>
-                <hr class="yellow-hr">
+                <p class="payment-lg-text">Please fill in your details</p>
+            </div>
+            <form action="{% url 'payment' %}" method="POST" id="payment-form">
+                {% csrf_token %}
+                <fieldset class="rounded px-3 mb-5">
+                    <legend class="fieldset-label small text-black px-2 w-auto">Name</legend>
+                    {{ user_info.first_name | as_crispy_field }}
+                    {{ user_info.last_name | as_crispy_field }}
+                </fieldset>
+                <fieldset class="rounded px-3 mb-5">
+                    <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
+                    {{ user_info.phone_number | as_crispy_field }}
+                    {{ user_info.first_line_address | as_crispy_field }}
+                    {{ user_info.postcode | as_crispy_field }}
+                </fieldset>
+                <div class="text-center payment-submit-btn">
+                    <button type="submit" class="yellow-btn btn btn-lg" id="addInfo">Add info</button>
                 </div>
-                 <div class="text-center payment-submit-btn">
-                    <a href="{% url 'members' %}" class="yellow-btn btn btn-lg">Members Area</a>
-                </div>
-        </div>
-    </div>
-</div>
-{% else %}
 
-{% if not user.userinfo %}
-<div class="text-center">
-<p class="payment-lg-text">Please fill in your details</p>
-</div>
-<form action="{% url 'payment' %}" method="POST" id="payment-form">
-                    {% csrf_token %}
-                    <fieldset class="rounded px-3 mb-5">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Name</legend>
-                        {{ user_info.first_name | as_crispy_field }}
-                        {{ user_info.last_name | as_crispy_field }}
-                    </fieldset>
-                    <fieldset class="rounded px-3 mb-5">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
-                        {{ user_info.phone_number | as_crispy_field }}
-                        {{ user_info.first_line_address | as_crispy_field }}
-                        {{ user_info.postcode | as_crispy_field }}
-                    </fieldset>
- <div class="text-center payment-submit-btn">
-      <button type="submit" class="yellow-btn btn btn-lg" id="addInfo">Add info</button>
-    </div>
-                    
-                </form>
+            </form>
 
-                {% else %}
-                <div class="text-center">
+            {% else %}
+            <div class="text-center">
                 <p class="payment-lg-text">Thank you for filling in your details {{ userinfo.first_name }}</p>
                 <hr class="yellow-hr">
-                <p class="payment-text">Join now for as little as £599 for the year. Access to all areas of the fitness club: Gym, Pool & Spa, Racquets and more!</p>
-                <p class="payment-text">When signing up you also get access to our Personal Trainer Exercise Plan available whenever you need it in the members section of this site. You'll also have your membership card in the members section so you can access the club with your phone!</p>
+                <p class="payment-text">Join now for as little as £599 for the year. Access to all areas of the fitness
+                    club: Gym, Pool & Spa, Racquets and more!</p>
+                <p class="payment-text">When signing up you also get access to our Personal Trainer Exercise Plan
+                    available whenever you need it in the members section of this site. You'll also have your membership
+                    card in the members section so you can access the club with your phone!</p>
                 <hr class="yellow-hr">
-                </div>
-                 <div class="text-center payment-submit-btn">
-                    <button type="submit" class="yellow-btn btn btn-lg" id="submitBtn">Subscribe</button>
-                </div>
-                
-                {% endif %}
+            </div>
+            <div class="text-center payment-submit-btn">
+                <button type="submit" class="yellow-btn btn btn-lg" id="submitBtn">Subscribe</button>
+            </div>
 
-            
+            {% endif %}
+
+
 
         </div>
     </div>
@@ -83,8 +86,8 @@
 {% if user.is_staff %}
 <form action="check-paid-status" method="GET">
     <div class="text-center payment-submit-btn">
-<button type="submit" class="red-btn btn btn-lg"> DELETE USERS</button>
-</div>
+        <a href="{% url 'check-paid-status' %}" class="yellow-btn btn btn-lg">Delete users</a>
+    </div>
 </form>
 
 {% endif %}
@@ -95,5 +98,5 @@
 
 {% block postloadjs %}
 {{ block.super }}
-    <script src="{% static 'js/stripe.js' %}"></script>
+<script src="{% static 'js/stripe.js' %}"></script>
 {% endblock %}
