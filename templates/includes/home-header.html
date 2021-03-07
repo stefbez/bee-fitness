@@ -18,7 +18,11 @@
     </div>
     {% elif request.get_full_path == "/members/" %}
     <div class="header-members">
-    <h1 class="home-header--text">{{ request.user.userinfo.first_name }}'s Member Area</h1>
+    <h1 class="home-header--text">{{ request.user.userinfo.first_name }}'s Members Area</h1>
+    </div>
+    {% elif request.get_full_path == "/profile/" %}
+    <div class="header-profile">
+    <h1 class="home-header--text">{{ request.user.userinfo.first_name }}'s Profile</h1>
     </div>
     {% endif %}
 </header>
