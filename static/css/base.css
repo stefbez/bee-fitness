@@ -40,6 +40,10 @@ a.acc-link  {
     text-decoration: none;
 }
 
+a.acc-link:hover {
+    color: rgba(0, 0, 0, 0.5);
+}
+
 .btn-font-lg {
     font-size: calc(20px + .75vw);
 }
