@@ -86,13 +86,12 @@
 {% if user.is_staff %}
 <form action="check-paid-status" method="GET">
     <div class="text-center payment-submit-btn">
-        <a href="{% url 'check-paid-status' %}" class="yellow-btn btn btn-lg">Delete users</a>
+        <a href="{% url 'check-paid-status' %}" class="red-btn btn btn-lg">Delete Expired Users</a>
     </div>
 </form>
 
 {% endif %}
-<!-- <a href="" name="check-paid-status" id="check-paid-status" class="btn btn-lg">
-                    Delete USERS</a> -->
+
 
 {% endblock %}
 

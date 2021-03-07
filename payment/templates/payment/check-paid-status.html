@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block content %}
+{% if user.is_staff %}
+{% include 'includes/home-header.html' %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="text-center">
+                <p class="payment-lg-text">Expired users have been deleted</p>
+                <hr class="yellow-hr">
+                <p class="payment-text">Please remember to run this process at the start of each day as part of the opening procedure</p>
+                <hr class="yellow-hr">
+                </div>
+                 <div class="text-center payment-submit-btn">
+                    <a href="{% url 'home' %}" class="yellow-btn btn btn-lg">Home</a>
+                </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+    <script src="{% static 'js/stripe.js' %}"></script>
+{% endblock %}

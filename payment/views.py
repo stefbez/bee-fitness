@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.http.response import JsonResponse, HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.admin.views.decorators import staff_member_required
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
@@ -149,13 +150,11 @@ def stripe_webhook(request):
     return HttpResponse(status=200)
 
 
+@staff_member_required
 def check_paid_status(request):
     date = datetime.now()
     end_dates = PaidMember.objects.filter(end_date__lte=date)
     print(end_dates)
     end_dates.delete()
-    # now = datetime.datetime.now()
-    # paid_member = PaidMember.objects.get(user=request.user)
-    # if paid_member.end_date < now:
-    #     paid_member.delete()
-    return render(request, 'payment/payment.html')
+
+    return render(request, 'payment/check-paid-status.html')

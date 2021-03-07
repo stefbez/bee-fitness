@@ -32,5 +32,9 @@
     <div class="header-payment">
     <h1 class="home-header--text">Payment Cancelled</h1>
     </div>
+    {% elif request.get_full_path == "/payment/check-paid-status/" %}
+    <div class="header-payment">
+    <h1 class="home-header--text">Great Work!</h1>
+    </div>
     {% endif %}
 </header>

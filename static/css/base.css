@@ -8,7 +8,6 @@ body {
     background: url('/media/cross-trainer.jpg') no-repeat 54% 40% fixed;
     background-size: cover;
     height: calc(100vh - 64px);
-
 }
 
 /* Font */
@@ -21,9 +20,6 @@ a {
 h1 {
     font-family: 'Bebas Neue', sans-serif;
 }
-
-    /* color: #f5bf6a;
-    text-shadow: 1px 1px 0px rgb(0 0 0 / 30%), 1px 1px 0px rgb(0 0 0 / 30%), 1px 1px 0px rgb(0 0 0 / 30%), 1px 1px 0px rgb(0 0 0 / 30%); */
 
 /* Font Styling */
 
@@ -119,6 +115,11 @@ nav.nav-mobile {
     padding: 5px;
 }
 
+.dropdown-menu {
+    right: 0;
+    left: auto;
+}
+
 /* colours */
 
 .bg-yellow {
@@ -127,57 +128,13 @@ nav.nav-mobile {
 
 .yellow-text {
     color: rgb(249, 189, 89);
-    text-shadow: 1px 1px 0px rgb(0 0 0 / 30%), 1px 1px 0px rgb(0 0 0 / 30%), 1px 1px 0px rgb(0 0 0 / 30%), 1px 1px 0px rgb(0 0 0 / 30%);
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3), 1px 1px 0px rgba(0, 0, 0, 0.3), 1px 1px 0px rgba(0, 0, 0, 0.3), 1px 1px 0px rgba(0, 0, 0, 0.3);
 }
 
 h1.callout-text {
     text-shadow: 1px 1px 0px rgb(249, 189, 89), 1px 1px 0px rgb(249, 189, 89), 1px 1px 0px rgb(249, 189, 89), 1px 1px 0px rgb(249, 189, 89);
 }
 
-.black-btn {
-    background-color: rgb(0, 0, 0);
-    color: rgb(249, 189, 89);
-}
-
-.black-btn.btn:focus {
-    box-shadow: 0 0 0 2px rgb(0 0 0 / 30%);
-}
-
-.black-btn.btn:hover {
-    color: rgb(0, 0, 0);
-    background-color: rgb(249, 189, 89);
-    border: 2px solid black;
-}
-
-.yellow-btn {
-    background-color: rgb(249, 189, 89);
-    color: rgb(0, 0, 0);
-}
-
-.yellow-btn.btn:focus {
-    box-shadow: 0 0 0 2px rgb(0 0 0 / 30%);
-}
-
-.yellow-btn.btn:hover {
-    color: rgb(249, 189, 89);
-    background-color: rgb(0, 0, 0);
-    border: 2px solid rgb(249, 189, 89);
-}
-
-.red-btn {
-    background-color: rgb(230, 14, 14);
-    color: rgb(255, 255, 255);
-}
-
-.red-btn.btn:focus {
-    box-shadow: 0 0 0 2px rgb(0 0 0 / 30%);
-}
-
-.red-btn.btn:hover {
-    color: rgb(230, 14, 14);
-    background-color: rgb(0, 0, 0);
-    border: 2px solid rgb(230, 14, 14);
-}
 
 .overlay.overlay-grey {
     background-color: rgba(0, 0, 0, 0.7);
@@ -193,6 +150,54 @@ body,
 .header-payment {
     background-blend-mode: multiply;
     background-color: rgba(245, 191, 106, 0.2);
+}
+
+/* Buttons */
+
+.black-btn {
+    background-color: rgb(0, 0, 0);
+    color: rgb(249, 189, 89);
+}
+
+.black-btn.btn:focus {
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.black-btn.btn:hover {
+    color: rgb(0, 0, 0);
+    background-color: rgb(249, 189, 89);
+    border: 2px solid black;
+}
+
+.yellow-btn {
+    background-color: rgb(249, 189, 89);
+    color: rgb(0, 0, 0);
+}
+
+.yellow-btn.btn:focus {
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.yellow-btn.btn:hover {
+    color: rgb(249, 189, 89);
+    background-color: rgb(0, 0, 0);
+    border: 2px solid rgb(249, 189, 89);
+}
+
+.red-btn {
+    background-color: rgb(230, 14, 14);
+    color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+}
+
+.red-btn.btn:focus {
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.red-btn.btn:hover {
+    color: rgb(230, 14, 14);
+    background-color: rgb(0, 0, 0);
+    border: 2px solid rgb(230, 14, 14);
 }
 
 /* Overlay */
