@@ -9,9 +9,10 @@
 </div>
 {% endblock %}
 
-
 {% block content %}
+
 {% include 'includes/home-header.html' %}
+
 <div class="container">
     <div class="row">
         <div class="col">
@@ -20,16 +21,17 @@
                 <hr class="yellow-hr">
                 <p class="payment-text">Please press on the button below to start your payment process again</p>
                 <hr class="yellow-hr">
-                </div>
-                 <div class="text-center payment-submit-btn">
-                    <a href="{% url 'payment' %}" class="yellow-btn btn btn-lg" id="submitBtn">Back to Payment</a>
-                </div>
+            </div>
+            <div class="text-center payment-submit-btn">
+                <a href="{% url 'payment' %}" class="yellow-btn btn btn-lg" id="submitBtn">Back to Payment</a>
+            </div>
         </div>
     </div>
 </div>
+
 {% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
-    <script src="{% static 'js/stripe.js' %}"></script>
+<script src="{% static 'js/stripe.js' %}"></script>
 {% endblock %}

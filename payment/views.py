@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect, reverse
 from django.conf import settings
-from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from django.http.response import JsonResponse, HttpResponse, HttpResponseRedirect
+from django.http.response import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.admin.views.decorators import staff_member_required
 
@@ -44,8 +43,6 @@ def payment(request):
 
         temp = user_info.save(commit=False)
         temp.user = request.user
-        # temp['user'] = request.user
-        # if user_info.is_valid():
         temp.save()
 
         return redirect(reverse('payment'))
@@ -60,11 +57,13 @@ def payment(request):
 
     return render(request, template, context)
 
+
 @csrf_exempt
 def stripe_config(request):
     if request.method == 'GET':
         stripe_config = {'publicKey': settings.STRIPE_PUBLIC_KEY}
         return JsonResponse(stripe_config, safe=False)
+
 
 @csrf_exempt
 def create_checkout_session(request):

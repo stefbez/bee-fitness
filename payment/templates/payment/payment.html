@@ -9,9 +9,10 @@
 </div>
 {% endblock %}
 
-
 {% block content %}
+
 {% include 'includes/home-header.html' %}
+
 <div class="container">
     <div class="row">
         <div class="col">
@@ -33,9 +34,11 @@
                     </div>
                 </div>
             </div>
+
             {% else %}
 
             {% if not user.userinfo %}
+
             <div class="text-center">
                 <p class="payment-lg-text">Please fill in your details</p>
             </div>
@@ -54,10 +57,10 @@
                 <div class="text-center payment-submit-btn">
                     <button type="submit" class="yellow-btn btn btn-lg" id="addInfo">Add info</button>
                 </div>
-
             </form>
 
             {% else %}
+
             <div class="text-center">
                 <p class="payment-lg-text">Thank you for filling in your details {{ userinfo.first_name }}</p>
                 <hr class="yellow-hr">
@@ -74,8 +77,6 @@
 
             {% endif %}
 
-
-
         </div>
     </div>
 </div>
@@ -83,6 +84,7 @@
 {% endif %}
 
 {% if user.is_staff %}
+
 <form action="check-paid-status" method="GET">
     <div class="text-center payment-submit-btn">
         <a href="{% url 'check-paid-status' %}" class="red-btn btn btn-lg">Delete Expired Users</a>
@@ -90,7 +92,6 @@
 </form>
 
 {% endif %}
-
 
 {% endblock %}
 
