@@ -12,5 +12,36 @@
 {% block content %}
 
 {% include 'includes/home-header.html' %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center about-yellow-bg">
+            <p class="about-top-text">Here at Bee Fitness, we have thought about ways to make your fitness journey
+                easier.</p>
+            <hr class="black-thick-hr">
+
+            <p class="about-text">We have dedicated zones in the gym including areas for cardio, functional training,
+                weights and free weights.</p>
+            <p class="about-text">
+                We have got a wide range of fitness equipment and multiples of each one so you should never have to be
+                waiting.</p>
+            <p class="about-text">
+                Our range include treadmills, steppers, cross-trainers, spin bikes and more! We also have a special area
+                with our unique training frame which includes TRX, cable stations, batton ropes and more!</p>
+            <p class="about-text">
+                We offer a diverse range of fitness classes including spinning in our dedicated spin room. If a more
+                personal touch is what you’re after, we specialise in having expert personal trainers on hand to help
+                you achieve whatever you want in your fitness journey.</p>
+        </div>
+        <div class="my-5 text-center">
+            {% if user.paidmember %}
+            <a href="{% url 'members' %}" class="yellow-btn btn btn-lg btn-font-lg">
+                Members Area</a>
+            {% else %}
+            <a href="{% url 'payment' %}" class="yellow-btn btn btn-lg btn-font-lg">
+                Join the Gym</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
 
 {% endblock %}

@@ -11,4 +11,37 @@
 
 {% block content %}
 {% include 'includes/home-header.html' %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center about-yellow-bg">
+            <p class="about-top-text">Bee Fitness is excited to offer indoor and outdoor pools both heated and unheated,
+                meaning you can enjoy swimming all year round!</p>
+            <hr class="black-thick-hr">
+
+            <p class="about-text">We have a specialised indoor pool for lengths for intensive training and another
+                indoor pool for a more relaxed swim.</p>
+            <p class="about-text">
+                The kids can join in with the fun too with special shallow splash pools and dedicated children play
+                hours.</p>
+            <p class="about-text">
+                At all times there are lifeguards on duty at each of our pools to ensure full safety for the whole
+                family.</p>
+            <p class="about-top-text">Once you’ve finished your swim or a workout in our gyms, the spa will be waiting
+                for you!</p>
+            <hr class="black-thick-hr">
+            <p class="about-text">
+                We have a state of the art spa which includes saunas, steam rooms and a whirlpool! We also have a quiet
+                room which is dedicated to silence where you can read and relax in peace.</p>
+        </div>
+        <div class="my-5 text-center">
+            {% if user.paidmember %}
+            <a href="{% url 'members' %}" class="yellow-btn btn btn-lg btn-font-lg">
+                Members Area</a>
+            {% else %}
+            <a href="{% url 'payment' %}" class="yellow-btn btn btn-lg btn-font-lg">
+                Join the Gym</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
 {% endblock %}

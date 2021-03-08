@@ -66,6 +66,7 @@ a.nav-link {
     font-size: 16px;
 }
 
+.about-text,
 .payment-text {
     font-size: 18px;
 }
@@ -76,12 +77,29 @@ a.nav-link {
     text-decoration: underline;
 }
 
+p.about-top-text {
+    font-size: 24px;
+}
+
+
+.about-header {
+    font-size: 48px;
+}
+
 /* Horizontal Rule */
 
 .yellow-hr {
     width: 300px;
     margin: 20px auto;
     border: 2px solid rgb(249, 189, 89);
+    border-radius: 5px;
+    opacity: unset;
+}
+
+.black-thick-hr {
+    width: 300px;
+    margin: 20px auto;
+    border: 2px solid rgb(0, 0, 0);
     border-radius: 5px;
     opacity: unset;
 }
@@ -266,6 +284,30 @@ body,
 .header-payment {
     height: 100%;
     background-size: cover;
+}
+
+/* About pages */
+
+.heading-text-top {
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.about-yellow-bg {
+    background: rgb(249, 189, 89);
+    margin-top: 20px;
+}
+
+iframe.map {
+    height: 50%;
+    width: 100%;
+    border: 0;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.map-col {
+    height: 75vh;
 }
 
 /* Members */

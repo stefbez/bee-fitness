@@ -14,4 +14,49 @@
 
 {% include 'includes/home-header.html' %}
 
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center about-yellow-bg">
+            <p class="about-top-text">Welcome to Bee Fitness where your new fitness and health experience starts!</p>
+            <hr class="black-thick-hr">
+
+            <p class="about-text">Our club is a place where you can exercise, meet new people to train with and relax.
+                We have the latest high-spec gym equipment, state of the art indoor and outdoor tennis courts, heated
+                swimming pools and a spa. </p>
+            <p class="about-text">
+                We also have a cafe with large member areas where you can relax after a fitness session or to continue
+                relaxing after using the spa. You can meet friends or family who are part of Bee Fitness to enjoy a bite
+                to eat or catch up over a coffee.</p>
+            <p class="about-text">
+                We offer a diverse range of fitness classes including spinning in our dedicated spin room. If a more
+                personal touch is what you’re after, we specialise in having expert personal trainers on hand to help
+                you achieve whatever you want in your fitness journey. </p>
+            <p class="about-text">
+                Whatever you want to achieve with fitness, Bee Fitness can help.</p>
+            <hr class="black-thick-hr">
+            <p class="about-top-text">Join today for a low yearly price of £599</p>
+        </div>
+        <div class="my-5 text-center">
+            {% if user.paidmember %}
+            <a href="{% url 'members' %}" class="yellow-btn btn btn-lg btn-font-lg">
+                Members Area</a>
+            {% else %}
+            <a href="{% url 'payment' %}" class="yellow-btn btn btn-lg btn-font-lg">
+                Join the Gym</a>
+            {% endif %}
+        </div>
+        <div class="col-12 map-col text-center">
+            <h1 class="text-center about-header heading-text-top">Finding Us</h1>
+            <hr class="yellow-hr">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1317.8893874932146!2d-0.8592766973118664!3d51.831281053047235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876f74ba634bb5b%3A0x956bba3e824ded8e!2sSir%20Henry%20Lee%20Cres%2C%20Aylesbury%20HP18%200PS!5e1!3m2!1sen!2suk!4v1615163414526!5m2!1sen!2suk"
+                allowfullscreen="" loading="lazy" class="map"></iframe>
+            <p class="about-text">10 Sir Henry Lee Crescent</p>
+            <p class="about-text">Aylesbury, HP18 0PE</p>
+            <p class="about-text">Phone: 01296 000111</p>
+            <hr class="yellow-hr">
+        </div>
+    </div>
+</div>
+
 {% endblock %}
