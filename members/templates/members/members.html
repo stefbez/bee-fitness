@@ -28,7 +28,7 @@
                     </div>
                     <div class="membership-card-back">
                         {% load qr_code %}
-                        {% qr_from_text "" %}
+                        {% qr_from_text user.username %}
                         <p class="membership-card-name">{{ user.userinfo.first_name }} {{ user.userinfo.last_name }}</p>
                         <p class="membership-card-text">Subscription Ends: {{ user.paidmember.end_date.date }}</p>
                     </div>
@@ -41,8 +41,6 @@
     <hr class="yellow-hr">
     <div class="row overflow-auto exercise-plans">
         <div class="col text-center">
-
-
             {% for plan in exercise_plans %}
             <p class="exercise-plan-sm-text">{{ plan.date.date }}</p>
             <p class="exercise-plan-lg-text">{{ plan.title }}</p>
@@ -62,7 +60,6 @@
             <h1>No PT PLANS</h1>
             <p class="exercise-plan-sm-text">Contact your gym rep if you think you should have a PT plan</p>
             {% endif %}
-
         </div>
     </div>
 </div>
