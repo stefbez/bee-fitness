@@ -81,7 +81,6 @@ p.about-top-text {
     font-size: 24px;
 }
 
-
 .about-header {
     font-size: 48px;
 }
@@ -152,7 +151,6 @@ nav.nav-mobile {
 h1.callout-text {
     text-shadow: 1px 1px 0px rgb(249, 189, 89), 1px 1px 0px rgb(249, 189, 89), 1px 1px 0px rgb(249, 189, 89), 1px 1px 0px rgb(249, 189, 89);
 }
-
 
 .overlay.overlay-grey {
     background-color: rgba(0, 0, 0, 0.7);
@@ -460,15 +458,15 @@ iframe.map {
 	/* btn */
 	display: inline-block;
     font-weight: 400;
-    color: #fff;
+    color: rgb(0, 0, 0);
     text-align: center;
     vertical-align: middle;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    background-color: #000;
-    border: 1px solid #000;
+    background-color: rgb(249, 189, 89);
+    border: 1px solid rgb(249, 189, 89);
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
@@ -486,5 +484,5 @@ iframe.map {
 }
 
 .allauth-form-inner-content a {
-	color: #17a2b8; /* text-info */
+	color: rgb(0, 0, 0); /* text-info */
 }
