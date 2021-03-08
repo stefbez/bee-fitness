@@ -257,6 +257,14 @@ The website can be found on the link at the top of the page and here - [Bee Fitn
 * Bee Fitness Logo was made on [Canva](https://www.canva.com/)
 
 * All header images and home page image were sourced using [Pexels](https://www.pexels.com/search/gym/)
+* [Treadmill](https://www.pexels.com/photo/an-on-treadmill-1954524/)
+* [Stretch](https://www.pexels.com/photo/selective-focus-photography-of-woman-in-white-sports-brassiere-standing-near-woman-sitting-on-pink-yoga-mat-864939/)
+* [cross-trainer](https://www.pexels.com/photo/young-female-athlete-training-alone-on-treadmill-in-modern-gym-3768916/)
+* [Gym](https://www.pexels.com/collections/healthy-living-sport-food-u880qh7/)
+* [Tennis](https://www.pexels.com/photo/selective-focus-close-up-photo-of-empty-red-and-green-tennis-court-with-view-of-tennis-net-2627310/)
+* [Swimming](https://www.pexels.com/photo/person-swimming-on-body-of-water-863988/)
+* [Tennis-2](https://www.pexels.com/photo/people-woman-ball-tennis-5069199/)
+* [Arm press](https://www.pexels.com/photo/serious-sportsman-training-on-exercise-machine-in-modern-gym-3838937/)
 
 ### Acknowledgements
 
