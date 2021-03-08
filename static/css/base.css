@@ -246,7 +246,7 @@ body,
 }
 
 .header-about {
-    background: url('/media/treadmill.jpg') no-repeat center fixed;
+    background: url('/media/treadmill.jpg') no-repeat 80% center fixed;
 }
 
 .header-gym {
