@@ -15,10 +15,8 @@ def user_profile(request):
     if user_info:
         user = UserInfo.objects.get(user=request.user)
     form = UserProfileForm(instance=user_profile)
-    print(form)
     form = UserInfoForm(instance=user)
     if request.method == 'POST':
-        print('IF POST WORKS')
         form = UserProfileForm(request.POST, instance=user_profile)
         if form.is_valid():
             form_data = {

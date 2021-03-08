@@ -22,12 +22,10 @@ def payment(request):
     try:
         user = UserInfo.objects.get(user=request.user)
         form = UserInfoForm(instance=user)
-        print(form)
     except UserInfo.DoesNotExist:
         form = UserInfoForm()
 
     if request.method == 'POST':
-        print('IF POST WORKS')
         form_data = {
             'first_name': request.POST['first_name'],
             'last_name': request.POST['last_name'],
@@ -53,7 +51,6 @@ def payment(request):
         "user_info": user_info,
         "user_info": form
         }
-    print(request.user.id)
 
     return render(request, template, context)
 
@@ -94,7 +91,6 @@ def create_checkout_session(request):
 @login_required
 def success(request):
     if 'membership_payment_success' in request.session:
-        print('session SUCCESSFUL. IT WORKS!!!!')
         amount = 599.00
         start_date = datetime.now()
         end_date = start_date + relativedelta(years=1)
@@ -113,8 +109,6 @@ def success(request):
             'end_date': end_date,
             'amount': amount,
         }
-
-        print('request.user.paidmember')
 
         return render(request, 'payment/success.html', context)
 
@@ -152,7 +146,6 @@ def stripe_webhook(request):
 def check_paid_status(request):
     date = datetime.now()
     end_dates = PaidMember.objects.filter(end_date__lte=date)
-    print(end_dates)
     end_dates.delete()
 
     return render(request, 'payment/check-paid-status.html')
