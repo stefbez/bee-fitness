@@ -2,39 +2,39 @@
 <header class="text-center align-text-bottom w-100 home-header">
     {% if request.get_full_path == "/about/" %}
     <div class="header-about">
-    <h1 class="home-header--text">About</h1>
+        <h1 class="home-header--text">About</h1>
     </div>
     {% elif request.get_full_path == "/gym/" %}
     <div class="header-gym">
-    <h1 class="home-header--text">Gym</h1>
+        <h1 class="home-header--text">Gym</h1>
     </div>
     {% elif request.get_full_path == "/racquets/" %}
     <div class="header-racquets">
-    <h1 class="home-header--text">Racquets</h1>
+        <h1 class="home-header--text">Racquets</h1>
     </div>
     {% elif request.get_full_path == "/swim-spa/" %}
     <div class="header-swim-spa">
-    <h1 class="home-header--text">Swim & Spa</h1>
+        <h1 class="home-header--text">Swim & Spa</h1>
     </div>
     {% elif request.get_full_path == "/members/" %}
     <div class="header-members">
-    <h1 class="home-header--text">{{ request.user.userinfo.first_name }}'s Members Area</h1>
+        <h1 class="home-header--text">{{ request.user.userinfo.first_name }}'s Members Area</h1>
     </div>
     {% elif request.get_full_path == "/profile/" %}
     <div class="header-profile">
-    <h1 class="home-header--text">{{ request.user.userinfo.first_name }}'s Profile</h1>
+        <h1 class="home-header--text">{{ request.user.userinfo.first_name }}'s Profile</h1>
     </div>
     {% elif request.get_full_path == "/payment/" %}
     <div class="header-payment">
-    <h1 class="home-header--text">Sign Up</h1>
+        <h1 class="home-header--text">Sign Up</h1>
     </div>
     {% elif request.get_full_path == "/payment/cancel/" %}
     <div class="header-payment">
-    <h1 class="home-header--text">Payment Cancelled</h1>
+        <h1 class="home-header--text">Payment Cancelled</h1>
     </div>
     {% elif request.get_full_path == "/payment/check-paid-status/" %}
     <div class="header-payment">
-    <h1 class="home-header--text">Great Work!</h1>
+        <h1 class="home-header--text">Great Work!</h1>
     </div>
     {% endif %}
 </header>

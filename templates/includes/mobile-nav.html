@@ -5,28 +5,28 @@
     </button>
     <li class="list-inline-item">
         <a href="{% url 'home' %}" class="bf-logo mobile-nav">
-            <img src="{{MEDIA_URL}}bf-logo.png"
-                alt="test image logo">
+            <img src="{{MEDIA_URL}}bf-logo.png" alt="test image logo">
         </a>
     </li>
     <li class="list-inline-item acc-icon text-success">
         <div class="dropdown">
-  <a href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="acc-link">
-     <div class="text-center">
+            <a href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                class="acc-link">
+                <div class="text-center">
                     <div><i class="fas fa-user fa-lg"></i></div>
                     <p class="my-0 acc-link">My Account</p>
                 </div>
             </a>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    {% if request.user.is_authenticated %}
-            <a class="dropdown-item" href="{% url 'user_profile' %}">Profile</a>
-            <a class="dropdown-item" href="{% url 'account_logout' %}">Sign Out</a>
-            {% else %}
-            <a class="dropdown-item" href="{% url 'account_signup' %}">Join</a>
-            <a class="dropdown-item" href="{% url 'account_login' %}">Sign In</a>
-            {% endif %}
-  </div>
-  </div>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                {% if request.user.is_authenticated %}
+                <a class="dropdown-item" href="{% url 'user_profile' %}">Profile</a>
+                <a class="dropdown-item" href="{% url 'account_logout' %}">Sign Out</a>
+                {% else %}
+                <a class="dropdown-item" href="{% url 'account_signup' %}">Join</a>
+                <a class="dropdown-item" href="{% url 'account_login' %}">Sign In</a>
+                {% endif %}
+            </div>
+        </div>
     </li>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav text-center mx-auto">
@@ -49,6 +49,4 @@
             {% endif %}
         </ul>
     </div>
-
-
 </nav>
