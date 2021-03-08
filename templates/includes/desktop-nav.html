@@ -35,6 +35,7 @@
             <a class="dropdown-item" href="{% url 'account_logout' %}">Sign Out</a>
             {% if request.user.is_staff %}
             <a class="dropdown-item" href="{% url 'check-paid-status' %}">Delete Expired Users</a>
+            <a class="dropdown-item" href="{% url 'admin:index' %}">Admin</a>
             {% endif %}
             {% else %}
             <a class="dropdown-item" href="{% url 'account_signup' %}">Join</a>
