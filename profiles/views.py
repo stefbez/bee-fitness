@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 from payment.models import UserInfo
-from payment.admin import UserInfoAdmin
 from payment.forms import UserInfoForm
 from .forms import UserProfileForm
 
@@ -34,14 +33,11 @@ def user_profile(request):
 
         temp = user_info.save(commit=False)
         temp.user = request.user
-        # temp['user'] = request.user
         if user_info.is_valid():
             temp.save()
 
         return redirect(reverse('user_profile'))
 
-    # user_profile = get_object_or_404(UserProfile, user=get_user)
-    # user_info = UserInfoForm
     context = {
             'form': form,
             "user_info": user_info,

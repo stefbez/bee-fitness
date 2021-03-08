@@ -9,23 +9,24 @@
 </div>
 {% endblock %}
 
-
 {% block content %}
+
 {% include 'includes/home-header.html' %}
+
 <div class="container">
     <div class="row">
         <div class="col">
             <h1 class="text-center profile-header-text">Edit Profile Information</h1>
             <hr class="yellow-hr">
-<form action="{% url 'user_profile' %}" method="POST" id="profile-form">
-    {% csrf_token %}
+            <form action="{% url 'user_profile' %}" method="POST" id="profile-form">
+                {% csrf_token %}
                 {{ form | crispy }}
                 <div class="text-center profile-submit-btn">
-                <input type="submit" value="Submit" class="yellow-btn btn btn-lg text-center mx-auto">
+                    <input type="submit" value="Submit" class="yellow-btn btn btn-lg text-center mx-auto">
                 </div>
             </form>
-            
         </div>
     </div>
 </div>
+
 {% endblock %}
