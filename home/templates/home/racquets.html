@@ -10,22 +10,29 @@
 {% endblock %}
 
 {% block content %}
+
 {% include 'includes/home-header.html' %}
+
 <div class="container">
     <div class="row">
         <div class="col-12 text-center about-yellow-bg">
             <p class="about-top-text">Bee Fitness offers indoor and outdoor tennis courts!</p>
             <hr class="black-thick-hr">
-
-            <p class="about-text">Whether you are a complete beginner or have been playing tennis for years, we’ve got you covered. We have 4 full sized indoor courts and 2 outside so you can choose to play tennis no matter the weather.</p>
+            <p class="about-text">Whether you are a complete beginner or have been playing tennis for years, we’ve got
+                you covered. We have 4 full sized indoor courts and 2 outside so you can choose to play tennis no matter
+                the weather.</p>
             <p class="about-text">
-                We here at Bee Fitness have a wide range of friendly competitions for all levels and social events to help you meet new people to play. We can help assess you level when you join to make sure you are put into the correct level.</p>
-                <p class="about-top-text">Tennis Lessons</p>
+                We here at Bee Fitness have a wide range of friendly competitions for all levels and social events to
+                help you meet new people to play. We can help assess you level when you join to make sure you are put
+                into the correct level.</p>
+            <p class="about-top-text">Tennis Lessons</p>
             <hr class="black-thick-hr">
             <p class="about-text">
-                Have you just started Tennis or want to improve on how you currently play and develop new skills? We offer Tennis lessons with our specialised coaches. </p>
+                Have you just started Tennis or want to improve on how you currently play and develop new skills? We
+                offer Tennis lessons with our specialised coaches. </p>
             <p class="about-text">
-                We offer individual lessons for both adults and children. We also offer discounted group sessions where you can meet likeminded people who are also learning and developing their skills.</p>
+                We offer individual lessons for both adults and children. We also offer discounted group sessions where
+                you can meet likeminded people who are also learning and developing their skills.</p>
         </div>
         <div class="my-5 text-center">
             {% if user.paidmember %}
@@ -38,4 +45,5 @@
         </div>
     </div>
 </div>
+
 {% endblock %}
