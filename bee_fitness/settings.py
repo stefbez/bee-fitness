@@ -116,7 +116,7 @@ ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 ACCOUNT_SESSION_REMEMBER = None
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/payment/'
+LOGIN_REDIRECT_URL = '/members/'
 
 WSGI_APPLICATION = 'bee_fitness.wsgi.application'
 
